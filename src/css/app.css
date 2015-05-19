@@ -1,0 +1,51 @@
+.simple-calendar {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+}
+
+.simple-calendar>thead>tr>th,
+.simple-calendar>tbody>tr>th,
+.simple-calendar>tfoot>tr>th,
+.simple-calendar>thead>tr>td,
+.simple-calendar>tbody>tr>td,
+.simple-calendar>tfoot>tr>td {
+  padding: 5px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border: 1px solid #ddd
+}
+
+.simple-calendar>thead>tr>th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd
+}
+
+.simple-calendar>thead:first-child>tr:first-child>th,
+.simple-calendar>thead:first-child>tr:first-child>td {
+  border-top: 0;
+}
+
+.simple-calendar>tbody+tbody {
+  border-top: 2px solid #ddd;
+}
+
+.simple-calendar>thead>tr>th,
+.simple-calendar>thead>tr>td {
+  border-bottom-width: 2px;
+}
+
+.simple-calendar>tbody>tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.simple-calendar .sibling-month {
+    color: #ccc;
+}
+
+.simple-calendar .has-events {
+    background-color: yellow;
+}

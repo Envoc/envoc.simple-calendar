@@ -1,0 +1,23 @@
+<table class="simple-calendar">
+    <thead>
+        <tr>
+            <td>Su</td>
+            <td>Mo</td>
+            <td>Tu</td>
+            <td>We</td>
+            <td>Th</td>
+            <td>Fr</td>
+            <td>Sa</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="week in calendar.weeks">
+            <td ng-repeat="day in week" ng-class="{
+            'sibling-month': day.siblingMonth,
+            'has-events': day.events.length
+            }">
+                {{day.day}}
+            </td>
+        </tr>
+    </tbody>
+</table>
