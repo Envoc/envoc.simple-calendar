@@ -1,3 +1,20 @@
-# Pocket Change - Front-End
+# ng-simple-calendar
 
-Know more about your money...
+```
+app.controller('MainCtrl', function($scope) {
+    $scope.events = [
+        {
+            name: 'foo',
+            date: '5-2-15'
+        },
+        {
+            name: 'bar',
+            date: new Date()
+        }
+    ];
+});
+```
+
+```
+<simple-calendar date="date" events="{{events}}"></simple-calendar>
+```
