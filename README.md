@@ -18,3 +18,5 @@ app.controller('MainCtrl', function($scope) {
 ```
 <simple-calendar date="date" events="{{events}}"></simple-calendar>
 ```
+
+![simple calendar](http://i.imgur.com/xLEgPLr.png)
