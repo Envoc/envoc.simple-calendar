@@ -1,6 +1,6 @@
 {
   "name": "jobney.ng-simple-calendar",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A simple angular calendar component",
   "main": "./dist/bundle.js",
   "scripts": {
