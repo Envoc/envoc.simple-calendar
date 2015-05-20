@@ -8,7 +8,7 @@ function simpleCalendarDirective() {
     template: require('html!./calendar.tmpl.html'),
     scope: {
       'date': '=',
-      'events': '@'
+      'events': '='
     },
     controller: simpleCalendarCtrl,
     controllerAs: 'calendar',
@@ -19,15 +19,23 @@ function simpleCalendarDirective() {
   };
 }
 
+/* @ngInject */
 function simpleCalendarCtrl($scope, $element, $attrs, $transclude) {
   var vm = this;
-  var cal = new Calendar({ siblingMonths: true });
+  var cal = new Calendar({
+    siblingMonths: true
+  });
 
   vm.init = init;
 
   function init() {
     vm.date = vm.date || new Date();
-    vm.events = getEvents();
+    vm.events = getEvents().slice();
+
+    $scope.$watchCollection(getEvents, function() {
+      updateCalendar(vm.date);
+    });
+
     $scope.$watch(getDate, function() {
       updateCalendar(vm.date);
     });
@@ -38,13 +46,13 @@ function simpleCalendarCtrl($scope, $element, $attrs, $transclude) {
   }
 
   function getEvents() {
-    return $scope.$eval(vm.events) || [];
+    return vm.events || [];
   }
 
   function updateCalendar(date) {
     var args = getDateArgs(new Date(date));
     vm.days = cal.getCalendar.apply(cal, args);
-    vm.days.forEach(mapEvents.bind(null, getEvents()));
+    vm.days.forEach(mapEvents.bind(null, vm.events));
     vm.weeks = segment(vm.days, 7);
   }
 
