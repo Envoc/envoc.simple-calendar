@@ -5,7 +5,7 @@
   "authors": [
     "Justin Obney <justinobney@gmail.com>"
   ],
-  "main": "./dist/bundle.js",
+  "main": "./dist/ngSimpleCalendar.js",
   "moduleType": [
     "globals"
   ],
@@ -17,8 +17,5 @@
     "app/libs/",
     "test",
     "tests"
-  ],
-  "dependencies": {
-    
-  }
+  ]
 }

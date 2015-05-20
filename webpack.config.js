@@ -3,7 +3,7 @@ var BowerWebpackPlugin  = require("bower-webpack-plugin");
 
 module.exports = {
   output: {
-      filename: "bundle.js"
+      filename: "ngSimpleCalendar.js"
   },
   plugins: [
     new BowerWebpackPlugin({

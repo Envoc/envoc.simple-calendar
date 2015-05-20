@@ -15,7 +15,7 @@ var dist ='./dist'
 var main = './src/lib/index.js';
 
 gulp.task('default', function(cb){
-  runSequence('build-deploy', 'browser-sync', cb)
+  runSequence('build-deploy', cb) // 'browser-sync'
 });
 
 gulp.task('build-deploy', function(cb){
@@ -30,13 +30,14 @@ gulp.task("webpack", function() {
   return gulp.src(main)
     .pipe(webpack(webpack_config))
     .pipe(ngAnnotate())
-    .pipe(gulp.dest(dist))
-    .pipe(reload({stream: true}));
+    .pipe(uglify())
+    .pipe(gulp.dest(dist));
+    //.pipe(reload({stream: true}));
 });
 
 gulp.task('css', function() {
   return gulp.src('./src/css/app.css')
-    .pipe(concat('app.css'))
+    .pipe(concat('ngSimpleCalendar.css'))
     .pipe(gulp.dest(dist))
     .pipe(reload({stream: true}));
 });
