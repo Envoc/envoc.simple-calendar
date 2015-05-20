@@ -1,6 +1,6 @@
 # ng-simple-calendar
 
-app.module('foo', ['ngSimpleCalendar'])
+`app.module('foo', ['ngSimpleCalendar'])`
 
 ```javascript
 app.controller('MainCtrl', function($scope) {
@@ -17,7 +17,7 @@ app.controller('MainCtrl', function($scope) {
 });
 ```
 
-```html
+```javascript
 <simple-calendar date="date" events="events"></simple-calendar>
 ```
 
