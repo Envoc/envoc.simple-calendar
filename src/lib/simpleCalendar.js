@@ -31,7 +31,7 @@ function simpleCalendarDirective($compile) {
 
         var events = root.querySelectorAll('simple-calendar-event');
         if (events.length){
-          var eventTemplate = angular.element('<div />');
+          var eventTemplate = angular.element('<div class="simple-calendar-event" />');
           eventTemplate.attr('ng-repeat', '$event in $day.events');
           eventTemplate.html(events.html());
           transcluded.append(eventTemplate);
