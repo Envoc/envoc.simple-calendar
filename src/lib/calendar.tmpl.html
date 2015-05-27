@@ -11,12 +11,11 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="week in calendar.weeks">
-            <td ng-repeat="day in week" ng-class="{
-            'sibling-month': day.siblingMonth,
-            'has-events': day.events.length
-            }">
-                {{day.day}}
+        <tr ng-repeat="week in calendar.weeks"
+            class="simple-calendar-week">
+            <td ng-repeat="$day in week"
+                class="simple-calendar-day"
+                ng-class="{'sibling-month': $day.siblingMonth, 'has-events': $day.events.length}">
             </td>
         </tr>
     </tbody>
