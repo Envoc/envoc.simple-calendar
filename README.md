@@ -18,18 +18,13 @@ app.controller('MainCtrl', function($scope) {
 ```
 
 ```javascript
-<simple-calendar date="date" events="events"></simple-calendar>
+<simple-calendar date="date" events="events">
+  <simple-calendar-day>{{$day.day}}</simple-calendar-day> <!-- optional -->
+  <simple-calendar-event>{{$event.name}}</simple-calendar-event> <!-- optional -->
+</simple-calendar>
 ```
 
 [Demo](http://plnkr.co/edit/QdSOd35vyFqBD07D9QNF?p=preview)
 
 ![simple calendar](http://i.imgur.com/xLEgPLr.png)
 
-*todo*
-
-```javascript
-<simple-calendar date="date" events="events">
-  <simple-calendar-day>{{$day.day}}</simple-calendar-day>
-  <simple-calendar-event>{{$event.name}}</simple-calendar-event>
-</simple-calendar>
-```
