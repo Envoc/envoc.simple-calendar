@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../dist/ngSimpleCalendar.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="//code.angularjs.org/1.3.15/angular.js" data-semver="1.3.15"></script>
+    <script src="../dist/ngSimpleCalendar.js"></script>
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <strong>{{monthName(date)}} {{date|date:'yyyy'}}</strong>
+    <br>
+    <button class="btn btn-default" ng-click="changeMonth(-1)">Prev</button>
+    <button class="btn btn-default" ng-click="changeMonth(1)">Next</button>
+    <br />
+    <br />
+    <simple-calendar date="date" events="events">
+      <simple-calendar-day>{{$day.day}}</simple-calendar-day>
+    </simple-calendar>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -31,8 +31,8 @@ gulp.task("webpack", function() {
     .pipe(webpack(webpack_config))
     .pipe(ngAnnotate())
     .pipe(uglify())
-    .pipe(gulp.dest(dist));
-    //.pipe(reload({stream: true}));
+    .pipe(gulp.dest(dist))
+    .pipe(reload({stream: true}));
 });
 
 gulp.task('css', function() {
@@ -42,10 +42,14 @@ gulp.task('css', function() {
     .pipe(reload({stream: true}));
 });
 
+gulp.task('serve', function(cb){
+  runSequence('build-deploy', 'browser-sync', cb)
+});
+
 // browser-sync task for starting the server.
 gulp.task('browser-sync', function(done) {
     browserSync({
-        server: { baseDir: './example' }
+        server: { baseDir: './' }
     });
 
     gulp.watch("./src/**/*.js", ['webpack']);
