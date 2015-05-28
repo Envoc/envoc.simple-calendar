@@ -9,5 +9,5 @@ if (angular.element.prototype.querySelectorAll === undefined) {
 }
 
 angular
-  .module('ngSimpleCalendar', [])
+  .module('envoc.simpleCalendar', [])
   .directive('simpleCalendar', simpleCalendar);

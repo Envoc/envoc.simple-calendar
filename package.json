@@ -1,5 +1,5 @@
 {
-  "name": "jobney.ng-simple-calendar",
+  "name": "envoc.simpleCalendar",
   "version": "0.1.0",
   "description": "A simple angular calendar component",
   "main": "./dist/ngSimpleCalendar.js",
@@ -32,10 +32,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/justinobney/jobney.ng-simple-calendar.git"
+    "url": "git+https://github.com/Envoc/envoc.simple-calendar.git"
   },
   "bugs": {
-    "url": "https://github.com/justinobney/jobney.ng-simple-calendar/issues"
+    "url": "https://github.com/Envoc/envoc.simple-calendar/issues"
   },
-  "homepage": "https://github.com/justinobney/jobney.ng-simple-calendar#readme"
+  "homepage": "https://github.com/Envoc/envoc.simple-calendar#readme"
 }

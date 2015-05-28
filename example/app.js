@@ -1,6 +1,6 @@
 /*global angular */
 
-var app = angular.module('plunker', ['ngSimpleCalendar']);
+var app = angular.module('plunker', ['envoc.simpleCalendar']);
 
 app.controller('MainCtrl', function($scope) {
   $scope.date = new Date();
