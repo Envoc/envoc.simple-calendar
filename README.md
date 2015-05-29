@@ -18,6 +18,10 @@ app.controller('MainCtrl', function($scope) {
 ```
 
 ```javascript
+<simple-calendar date="date" events="events"></simple-calendar>
+
+// or
+
 <simple-calendar date="date" events="events">
   <simple-calendar-day>{{$day.day}}</simple-calendar-day> <!-- optional -->
   <simple-calendar-event>{{$event.name}}</simple-calendar-event> <!-- optional -->
