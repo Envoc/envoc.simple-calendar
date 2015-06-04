@@ -4,6 +4,8 @@ var app = angular.module('plunker', ['envoc.simpleCalendar']);
 
 app.controller('MainCtrl', function($scope, simpleCalendarConfig) {
   simpleCalendarConfig.weekStart = 1;
+  simpleCalendarConfig.onDayClick = onDayClick;
+  simpleCalendarConfig.onEventClick = onEventClick;
 
   $scope.date = new Date();
   $scope.events = [{
@@ -13,12 +15,23 @@ app.controller('MainCtrl', function($scope, simpleCalendarConfig) {
     name: 'bar',
     date: new Date()
   }, {
+    name: 'bar foo',
+    date: new Date()
+  }, {
     name: 'baz',
     date: '6-12-15'
   }];
 
   $scope.changeMonth = changeMonth;
   $scope.monthName = monthName;
+
+  function onDayClick(day){
+    console.log(day);
+  }
+
+  function onEventClick(event, day){
+    console.log(event, day);
+  }
 
   function monthName(date) {
     var d = new Date(date);
