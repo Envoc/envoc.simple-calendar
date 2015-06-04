@@ -1,9 +1,13 @@
+simple-calendar {
+    display: block;
+    margin-bottom: 20px;
+}
+
 .simple-calendar {
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
   max-width: 100%;
-  margin-bottom: 20px;
   border: 1px solid #ddd;
 }
 
