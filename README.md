@@ -40,3 +40,5 @@ app.controller('MainCtrl', function($scope) {
 
 ![simple calendar](http://i.imgur.com/xLEgPLr.png)
 
+![customized calendar](http://i.imgur.com/4TyIL1Z.png)
+
