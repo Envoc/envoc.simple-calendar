@@ -39,7 +39,7 @@ function simpleCalendarDirective($compile) {
 
         day.empty().append(transcluded);
 
-        var compiled = $compile(root)(scope);
+        var compiled = $compile(root.children())(scope);
         iElement.append(compiled);
       });
       ctrl.init(iElement);
