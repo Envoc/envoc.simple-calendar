@@ -14,14 +14,18 @@
   <body ng-controller="MainCtrl">
     <strong>{{monthName(date)}} {{date|date:'yyyy'}}</strong>
     <br>
-    <button class="btn btn-default" ng-click="changeMonth(-1)">Prev</button>
-    <button class="btn btn-default" ng-click="changeMonth(1)">Next</button>
+    
+    <div>
+      <button class="btn btn-default" ng-click="changeMonth(-1)">Prev</button>
+      <button class="btn btn-default" ng-click="changeMonth(1)">Next</button>
+    </div>
     <br />
-    <br />
+
     <simple-calendar date="date" events="events">
       <simple-calendar-day>{{$day.day}}</simple-calendar-day>
       <simple-calendar-event>{{$event.name}}</simple-calendar-event>
     </simple-calendar>
+    
     <script src="app.js"></script>
   </body>
 </html>

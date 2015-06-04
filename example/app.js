@@ -2,7 +2,9 @@
 
 var app = angular.module('plunker', ['envoc.simpleCalendar']);
 
-app.controller('MainCtrl', function($scope) {
+app.controller('MainCtrl', function($scope, simpleCalendarConfig) {
+  simpleCalendarConfig.weekStart = 1;
+
   $scope.date = new Date();
   $scope.events = [{
     name: 'foo',
@@ -24,7 +26,7 @@ app.controller('MainCtrl', function($scope) {
       'January', 'February', 'March',
       'April', 'May', 'June',
       'July', 'August', 'September',
-      'October', 'November', 'December',
+      'October', 'November', 'December'
     ];
     return months[d.getMonth()];
   }
