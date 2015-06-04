@@ -48,12 +48,14 @@ function simpleCalendarDirective($compile) {
 }
 
 /* @ngInject */
-function simpleCalendarCtrl($scope, $element, $attrs, $transclude) {
+function simpleCalendarCtrl($scope, $element, $attrs, simpleCalendarConfig) {
   var vm = this;
-  var cal = new Calendar({
-    siblingMonths: true
-  });
+  var cal_opts = angular.extend(simpleCalendarConfig, {siblingMonths: true});
+  var cal = new Calendar(cal_opts);
+  var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var start = days.splice(simpleCalendarConfig.weekStart);
 
+  vm.weekdays = start.concat(days);
   vm.init = init;
 
   function init() {

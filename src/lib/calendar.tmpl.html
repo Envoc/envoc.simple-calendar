@@ -1,13 +1,7 @@
 <table class="simple-calendar">
     <thead>
         <tr>
-            <td>Su</td>
-            <td>Mo</td>
-            <td>Tu</td>
-            <td>We</td>
-            <td>Th</td>
-            <td>Fr</td>
-            <td>Sa</td>
+            <td ng-repeat="weekday in calendar.weekdays">{{weekday}}</td>
         </tr>
     </thead>
     <tbody>
