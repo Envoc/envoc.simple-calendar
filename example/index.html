@@ -22,10 +22,14 @@
     <br />
 
     <simple-calendar date="date" events="events">
-      <simple-calendar-day>{{$day.day}}</simple-calendar-day>
+      <simple-calendar-day>
+        <strong>{{$day.day}}</strong>
+      </simple-calendar-day>
       <simple-calendar-event>{{$event.name}}</simple-calendar-event>
     </simple-calendar>
-    
+    <br>
+
+    <simple-calendar date="date" events="events"></simple-calendar>
     <script src="app.js"></script>
   </body>
 </html>

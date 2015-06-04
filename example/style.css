@@ -1,3 +1,7 @@
 body {
   padding: 30px;
 }
+
+.simple-calendar-day:hover {
+  background: rgba(0,0,0,0.5);
+}
