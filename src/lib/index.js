@@ -10,7 +10,6 @@ if (angular.element.prototype.querySelectorAll === undefined) {
 
 var simpleCalendarConfig = Object.create(null);
 simpleCalendarConfig.weekStart = 0;
-simpleCalendarConfig.siblingMonths = true;
 
 angular
   .module('envoc.simpleCalendar', [])

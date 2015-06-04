@@ -1,10 +1,10 @@
 /*global angular, require */
 
 var Calendar = require('calendar-base').Calendar;
+var calendarTemplate = require('html!./calendar.tmpl.html');
 
 /* @ngInject */
 function simpleCalendarDirective($compile) {
-  var template = require('html!./calendar.tmpl.html');
   return {
     restrict: 'EA',
     scope: {
@@ -16,31 +16,30 @@ function simpleCalendarDirective($compile) {
     bindToController: true,
     transclude: true,
     link: function postLink(scope, iElement, iAttrs, ctrl, transcludeFn) {
-      transcludeFn(scope, function(clone){
-        var root = angular.element('<div />').append(template);
-        var day = root.querySelectorAll('.simple-calendar-day');
-        var transcluded = angular.element('<div />');
-        day.append(clone);
+      transcludeFn(scope, function(transcludedContent){
+        var directiveTemplateBuilder = angular.element(calendarTemplate);
 
-        var dayTemplate = day.querySelectorAll('simple-calendar-day');
-        if (dayTemplate.length === 0){
-          transcluded.append('{{$day.day}}');
-        } else {
-          transcluded.append(dayTemplate.html());
-        }
+        var dayRoot = directiveTemplateBuilder
+          .querySelectorAll('.simple-calendar-day')
+          .append(transcludedContent);
 
-        var events = root.querySelectorAll('simple-calendar-event');
+        var dayTemplateEl = directiveTemplateBuilder.querySelectorAll('simple-calendar-day');
+        var events = directiveTemplateBuilder.querySelectorAll('simple-calendar-event');
+        var dayTemplateBuilder = angular.element('<div />');
+
+        dayTemplateBuilder.append(dayTemplateEl.html() || '{{$day.day}}');
+
         if (events.length){
-          var eventTemplate = angular.element('<div class="simple-calendar-event" />');
-          eventTemplate.attr('ng-repeat', '$event in $day.events');
-          eventTemplate.html(events.html());
-          transcluded.append(eventTemplate);
+          var eventTemplate = angular
+            .element('<div class="simple-calendar-event" />')
+            .attr('ng-repeat', '$event in $day.events')
+            .html(events.html());
+
+          dayTemplateBuilder.append(eventTemplate);
         }
 
-        day.empty().append(transcluded);
-
-        var compiled = $compile(root.children())(scope);
-        iElement.append(compiled);
+        dayRoot.empty().append(dayTemplateBuilder);
+        iElement.append($compile(directiveTemplateBuilder)(scope));
       });
       ctrl.init(iElement);
     }
@@ -66,9 +65,7 @@ function simpleCalendarCtrl($scope, $element, $attrs, simpleCalendarConfig) {
       updateCalendar(vm.date);
     });
 
-    $scope.$watch(getDate, function() {
-      updateCalendar(vm.date);
-    });
+    $scope.$watch(getDate, updateCalendar);
   }
 
   function getDate() {
@@ -87,15 +84,13 @@ function simpleCalendarCtrl($scope, $element, $attrs, simpleCalendarConfig) {
   }
 
   function mapEvents(events, day) {
-    var dayEvents = events.filter(function(e) {
-      var date = new Date(e.date);
-      var args = getDateArgs(date);
+    day.events = events.filter(function(e) {
+      var args = getDateArgs(new Date(e.date));
       var match = (args[0] === day.year &&
         args[1] === day.month &&
         args[2] === day.day);
       return match;
     });
-    day.events = dayEvents;
   }
 
   function getDateArgs(date) {
@@ -103,7 +98,6 @@ function simpleCalendarCtrl($scope, $element, $attrs, simpleCalendarConfig) {
   }
 
   function segment(collection, groupSize) {
-
     var copy = collection.slice();
     var numGroups = (copy.length / groupSize);
     var groups = [];
