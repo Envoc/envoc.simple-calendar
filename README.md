@@ -1,6 +1,6 @@
-# ng-simple-calendar
+# simple-calendar
 
-`app.module('foo', ['ngSimpleCalendar'])`
+`app.module('foo', ['envoc.simpleCalendar'])`
 
 ```javascript
 app.controller('MainCtrl', function($scope) {
