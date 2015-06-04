@@ -8,6 +8,7 @@
         <tr ng-repeat="week in calendar.weeks"
             class="simple-calendar-week">
             <td ng-repeat="$day in week"
+                ng-click="calendar.onDayClick($day)"
                 class="simple-calendar-day"
                 ng-class="{'sibling-month': $day.siblingMonth, 'has-events': $day.events.length}">
             </td>

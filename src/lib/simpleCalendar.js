@@ -33,6 +33,7 @@ function simpleCalendarDirective($compile) {
           var eventTemplate = angular
             .element('<div class="simple-calendar-event" />')
             .attr('ng-repeat', '$event in $day.events')
+            .attr('ng-click', 'calendar.onEventClick($day.events[$index], $day); $event.stopPropagation();')
             .html(events.html());
 
           dayTemplateBuilder.append(eventTemplate);
@@ -56,6 +57,8 @@ function simpleCalendarCtrl($scope, $element, $attrs, simpleCalendarConfig) {
 
   vm.weekdays = start.concat(days);
   vm.init = init;
+  vm.onDayClick = simpleCalendarConfig.onDayClick || function(){};
+  vm.onEventClick = simpleCalendarConfig.onEventClick || function(){};
 
   function init() {
     vm.date = vm.date || new Date();
