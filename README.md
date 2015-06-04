@@ -28,6 +28,9 @@ app.controller('MainCtrl', function($scope) {
 </simple-calendar>
 ```
 
+`simpleCalendarConfig` constant that allows setting config values. 
+`simpleCalendarConfig.weekStart = 1` will set start date to Monday. respects `Date.prototype.getDay` (default 0, Sunday)
+
 * The calendar simply displays the month of the `date` is it bound to. 
 * Adds a `has-events` class on days with events if you pass in an event collection
 * Does not implement month title or next/prev. You can accomplish this by showing the date it is bound to or manuipulating the bound date. See demo for example.
